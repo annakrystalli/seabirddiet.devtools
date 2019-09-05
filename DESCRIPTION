@@ -28,6 +28,8 @@ Imports:
     stringr,
     tibble,
     tidyr,
+    stringi,
+    htmlwidgets,
     worrms (>= 0.3.2)
 Suggests: 
     testthat (>= 2.1.0)
