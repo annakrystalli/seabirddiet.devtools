@@ -21,7 +21,6 @@ Imports:
     plyr,
     purrr,
     readr,
-    shiny,
     stringr,
     tibble,
     tidyr,
