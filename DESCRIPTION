@@ -11,7 +11,6 @@ ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Imports:
-    assertr,
     dplyr,
     DT,
     EML (>= 2.0.0),
@@ -19,17 +18,13 @@ Imports:
     glue,
     here,
     lubridate,
-    magrittr,
     plyr,
     purrr,
-    rcrossref,
     readr,
     shiny,
     stringr,
     tibble,
     tidyr,
-    stringi,
-    htmlwidgets,
     worrms (>= 0.3.2)
 Suggests: 
     testthat (>= 2.1.0)
