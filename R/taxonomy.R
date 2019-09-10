@@ -139,6 +139,7 @@ validate_taxonomy <- function(taxonomy) {
 #' Bind taxonomy columns to dataset
 #'
 #' @param data dataset
+#' @param taxonomy taxonomic table to add
 #' @param role whether the taxonomy relates to prey or predator
 #'
 #' @return data with taxonomic information bound to it, prefixed with role.
