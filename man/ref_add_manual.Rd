@@ -2,15 +2,18 @@
 % Please edit documentation in R/bibliography.R
 \name{ref_add_manual}
 \alias{ref_add_manual}
-\title{Title}
+\title{Add manually corrected references}
 \usage{
 ref_add_manual(references, ref_manual)
 }
 \arguments{
-\item{references}{}
+\item{references}{references data.frame}
 
-\item{ref_manual}{}
+\item{ref_manual}{manual references to add}
+}
+\value{
+ref_manual  with references added
 }
 \description{
-Title
+Add manually corrected references
 }

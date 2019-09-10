@@ -2,15 +2,18 @@
 % Please edit documentation in R/bibliography.R
 \name{ref_bind_matched_missing_manual}
 \alias{ref_bind_matched_missing_manual}
-\title{Title}
+\title{Bind matched missing refs from ref_manual}
 \usage{
 ref_bind_matched_missing_manual(seabirddiet, ref_manual)
 }
 \arguments{
-\item{seabirddiet}{}
+\item{seabirddiet}{seabirddiet dataset}
 
-\item{ref_manual}{}
+\item{ref_manual}{data.frame of manually corrected references}
+}
+\value{
+ref_manual with added matched references
 }
 \description{
-Title
+Bind matched missing refs from ref_manual
 }

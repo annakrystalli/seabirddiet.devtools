@@ -1,20 +1,19 @@
 #' Extract date ranges from a vector of years
 #'
 #' @param x vector of years
-#' @param type what output to return. `both` for the range, 
+#' @param type what output to return. `both` for the range,
 #' `start` for only the start date, `end` for the end date
 #'
 #' @return years are converted to ISO dates of 1st Jan for a `begin` date
-#' and 31st Dec for `end` dates. If `type = "range"` a vector of length 2 
-#' is returned. Otherwise a named character string of the specified 
+#' and 31st Dec for `end` dates. If `type = "range"` a vector of length 2
+#' is returned. Otherwise a named character string of the specified
 #' boundary is returned.
 #' @export
-#'
 yr_to_isorange <- function(x, type = c("both", "start", "end")){
     type <- match.arg(type)
-    range <- c(start = as.Date(ISOdate(min(x, na.rm = T), 
+    range <- c(start = as.Date(ISOdate(min(x, na.rm = T),
                                        1, 1)),
-               end = as.Date(ISOdate(max(x, na.rm = T), 
+               end = as.Date(ISOdate(max(x, na.rm = T),
                                      12, 31))
                )
     return(
@@ -28,19 +27,19 @@ yr_to_isorange <- function(x, type = c("both", "start", "end")){
 
 #' Extract creators to list format
 #'
-#' Function to be applied to the `creators_df` to exctract tabular information 
-#' into creators format. 
-#' @param x a row in the `creators_df` data.frame 
+#' Function to be applied to the `creators_df` to exctract tabular information
+#' into creators format.
+#' @param x a row in the `creators_df` data.frame
 #' (read from `data-raw/metadata/creators.csv``)
 #'
 #' @return an eml creator list element
 #' @export
-extr_creator <- function(x){   
+extr_creator <- function(x){
     eml_address <- EML::eml$address(
         deliveryPoint =  x["address"],
         administrativeArea = x["amdin_area"],
         country = x["country"])
-    
+
     EML::eml$creator(
         individualName = EML::eml$individualName(
             givenName = x["givenName"],
@@ -62,7 +61,7 @@ extr_citations <- function(x){
 
 #' Create crossref citation_list
 #'
-#' Create a citation_list of unstructured citations following crossref schema from `references.csv`. 
+#' Create a citation_list of unstructured citations following crossref schema from `references.csv`.
 #' @param ref_path path to `references.csv` (defaults to `data-raw/metadata/references.csv`)
 #'
 #' @return a crossref `citation_list` in list format. To be supplied to the `metadata` element of `additionalMetadata`.

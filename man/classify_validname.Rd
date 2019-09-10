@@ -2,14 +2,19 @@
 % Please edit documentation in R/taxonomy.R
 \name{classify_validname}
 \alias{classify_validname}
-\title{Title}
+\title{Classify worrms validated names}
 \usage{
 classify_validname(valid_name, ranks = c("phylum", "class", "order",
   "family", "genus", "species"))
 }
 \arguments{
-\item{ranks}{}
+\item{valid_name}{a worrms validated name}
+
+\item{ranks}{ranks of interest to be returned}
+}
+\value{
+data.frame of ranks for worrms valid name
 }
 \description{
-Title
+Classify worrms validated names
 }

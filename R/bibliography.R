@@ -77,22 +77,22 @@ get_join_ref <- function(ref_tidy, ref){
 
 #' Find references missing from the ref_manual db
 #'
-#' @param data
-#' @param ref_manual
+#' @param data dataset
+#' @param ref_manual ref_manual data.frame
 #'
-#' @return
+#' @return data.frame of missing references
 #' @export
 ref_find_missing_manual <- function(data, ref_manual) {
     data[!data$reference %in% ref_manual$reference,] %>%
         dplyr::select(reference) %>%  dplyr::distinct()
 }
 
-#' Title
+#' Bind matched missing refs from ref_manual
 #'
-#' @param seabirddiet
-#' @param ref_manual
+#' @param seabirddiet seabirddiet dataset
+#' @param ref_manual data.frame of manually corrected references
 #'
-#' @return
+#' @return ref_manual with added matched references
 #' @export
 ref_bind_matched_missing_manual <- function(seabirddiet, ref_manual) {
     ref_find_missing_manual(seabirddiet, ref_manual) %>%
@@ -112,12 +112,12 @@ ref_bind_matched_missing_manual <- function(seabirddiet, ref_manual) {
         dplyr::distinct()
 }
 
-#' Title
+#' Add manually corrected references
 #'
-#' @param references
-#' @param ref_manual
+#' @param references references data.frame
+#' @param ref_manual manual references to add
 #'
-#' @return
+#' @return ref_manual  with references added
 #' @export
 ref_add_manual <- function(references, ref_manual) {
     dplyr::add_row(ref_manual,
@@ -127,12 +127,9 @@ ref_add_manual <- function(references, ref_manual) {
 }
 
 
-#' Title
-#'
-#' @param data
-#'
-#' @return
+
 #' @export
+#' @noRd
 df_recode_report <- function(data) {
     dplyr::mutate(seabirddiet,
                   notes2 = dplyr::case_when(.data$reference == "Report" ~ NA_character_,

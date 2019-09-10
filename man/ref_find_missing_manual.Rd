@@ -7,9 +7,12 @@
 ref_find_missing_manual(data, ref_manual)
 }
 \arguments{
-\item{data}{}
+\item{data}{dataset}
 
-\item{ref_manual}{}
+\item{ref_manual}{ref_manual data.frame}
+}
+\value{
+data.frame of missing references
 }
 \description{
 Find references missing from the ref_manual db

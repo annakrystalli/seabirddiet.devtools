@@ -2,13 +2,16 @@
 % Please edit documentation in R/taxonomy.R
 \name{validate_taxonomy}
 \alias{validate_taxonomy}
-\title{Title}
+\title{Validate taxonomy}
 \usage{
 validate_taxonomy(taxonomy)
 }
 \arguments{
-\item{taxonomy}{}
+\item{taxonomy}{taxonomy data.frame}
+}
+\value{
+if validated, the taxonomy data.frame. Otherwise an error report
 }
 \description{
-Title
+Validate taxonomy
 }

@@ -97,12 +97,12 @@ get_valid_taxon <- function(base_name){
 }
 
 
-#' Title
+#' Classify worrms validated names
 #'
-#' @param base_name
-#' @param ranks
+#' @param valid_name a worrms validated name
+#' @param ranks ranks of interest to be returned
 #'
-#' @return
+#' @return data.frame of ranks for worrms valid name
 #' @export
 classify_validname <- function(valid_name, ranks = c("phylum", "class", "order",
                                                    "family", "genus", "species")){
@@ -121,14 +121,12 @@ classify_validname <- function(valid_name, ranks = c("phylum", "class", "order",
 
 }
 
-#' Title
+#' Validate taxonomy
 #'
-#' @param taxonomy
+#' @param taxonomy taxonomy data.frame
 #'
-#' @return
+#' @return if validated, the taxonomy data.frame. Otherwise an error report
 #' @export
-#'
-#' @examples
 validate_taxonomy <- function(taxonomy) {
     taxonomy %>%
     assertr::assert(assertr::is_uniq, base_name) %>%
@@ -141,9 +139,9 @@ validate_taxonomy <- function(taxonomy) {
 #' Bind taxonomy columns to dataset
 #'
 #' @param data dataset
-#' @param role whether the taxonomy relates to
+#' @param role whether the taxonomy relates to prey or predator
 #'
-#' @return
+#' @return data with taxonomic information bound to it, prefixed with role.
 #' @export
 bind_taxonomy <- function(data, taxonomy, role = c("prey", "pred")) {
     # set join column names

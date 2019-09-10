@@ -9,7 +9,10 @@ bind_taxonomy(data, taxonomy, role = c("prey", "pred"))
 \arguments{
 \item{data}{dataset}
 
-\item{role}{whether the taxonomy relates to}
+\item{role}{whether the taxonomy relates to prey or predator}
+}
+\value{
+data with taxonomic information bound to it, prefixed with role.
 }
 \description{
 Bind taxonomy columns to dataset
