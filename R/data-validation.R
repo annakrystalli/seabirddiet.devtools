@@ -1,23 +1,3 @@
-find_suspect_preytype_ref <- function(seabirddiet){
-
-    library(shiny)
-    library(dplyr)
-
-    shinyApp(
-        ui = fluidPage(
-            fluidRow(
-                column(4, textInput("prey_orig_descr", label = h3(code("prey_orig_descr")), value = "sandeel")),
-                column(4, textInput("prey_taxon", label = h3(code("prey_taxon")), value = "Arthropoda"))),
-            fluidRow(tableOutput("table"))),
-
-        server = function(input, output, session) {
-            output$table <- renderTable({
-                seabirddiet[seabirddiet$prey_orig_descr == input$prey_orig_descr &
-                                seabirddiet$prey_valid_name == input$prey_taxon,
-                            c("prey_orig_descr", "prey_taxon", "id", "ref_ids")]})
-
-        })
-}
 
 #' Fuzzy match check for typos
 #'
